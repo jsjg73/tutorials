@@ -1,0 +1,24 @@
+1. Introduction
+    The basics of entities.
+    Entities along with various annotations.
+    Annotations define and customize an entity in JPA.
+
+2. Entity
+    Entities are just POJOs representing data.
+    An entity represents a table stored in a database.
+    Every instance of an entity represents a row in the table.
+
+    2.1 The Entity Annotation
+        We must also ensure that the entity has a no-arg constructor and a primary key:
+
+    2.2 The Id Annotation
+        Each JPA entity must have a primary key.
+        We can choose from four id generation strategies with the strategy element.
+        AUTO, TABLE, SEQUENCE, IDENTITY.
+    
+    2.3 The Table Annotation
+        In most cases, the name of table in database and the name of the entity will not be the same.
+
+    2.4 The Column Annotation
+        to mention the details of a column in the table.
+        many elements. (name, length, nullable, and unique)
