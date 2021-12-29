@@ -23,3 +23,10 @@ bin/
 # Maven
 log/*
 target/
+
+# spring-boot-hibernate
+spring-boot-hibernate/HELP.md
+spring-boot-hibernate/target/
+!spring-boot-hibernate/.mvn/wrapper/maven-wrapper.jar
+!spring-boot-hibernate/**/src/main/**/target/
+!spring-boot-hibernate/**/src/test/**/target/
