@@ -1,5 +1,6 @@
-# Spring Boot with Hibernate
-- integrate Hibernate with Spring Boot
+# Spring Boot with Hibernate [D002]
+- This project is a practice field for Hibernate with Spring Boot
+- Basically, referring to [Baeldung's guides](https://www.baeldung.com/)
 
 - Web, JPA, H2를 포함해서 스프링 부트 프로젝트 생성.
 
