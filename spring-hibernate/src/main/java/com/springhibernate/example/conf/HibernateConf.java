@@ -28,7 +28,7 @@ public class HibernateConf {
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 		sessionFactory.setDataSource(dataSource());
-		sessionFactory.setPackagesToScan(new String[] {"com.springhibernate.example.model"});
+		sessionFactory.setPackagesToScan(new String[] {"com.springhibernate.example.operations.model"});
 		sessionFactory.setHibernateProperties(hibernateProperties());
 		
 		return sessionFactory; 
@@ -37,7 +37,7 @@ public class HibernateConf {
 	@Bean
 	public Properties hibernateProperties() {
 		Properties hibernateProperties = new Properties();
-		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create");
 		hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 		return hibernateProperties;
 	}
