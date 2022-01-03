@@ -25,8 +25,15 @@ log/*
 target/
 
 # spring-boot-hibernate
-spring-boot-hibernate/HELP.md
-spring-boot-hibernate/target/
-!spring-boot-hibernate/.mvn/wrapper/maven-wrapper.jar
-!spring-boot-hibernate/**/src/main/**/target/
-!spring-boot-hibernate/**/src/test/**/target/
+*/HELP.md
+*/target/
+!*/.mvn/wrapper/maven-wrapper.jar
+!*/**/src/main/**/target/
+!*/**/src/test/**/target/
+
+
+### IntelliJ IDEA ###
+*/.idea
+*/*.iws
+*/*.iml
+*/*.ipr
