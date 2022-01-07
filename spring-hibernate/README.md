@@ -26,3 +26,8 @@
     
 - ***1.2 오퍼레이션 간의 차이***
     - 메소드(persist, save 등..)를 호출할 때 바로 쿼리가 실행되지 않는다. 실제로 DB에 데이터가 전달되는 것은 트랜잭션이나 세션이 완료될 때다.
+    - persist 메소드는 detaced를 저장할 수 없다.
+    - save 메소드는 식별자를 반환하며, detached에 대해서 새로운 record를 생성하기때문에 중복이 우려된다.(hibernate 오리지널)
+    - merge 메소드는 detaced 상태를 인자로 받아서 같은 ID의 새 object를 반환한다. 인자로 받은 detached 엔티티의 상태값을 사용한다.
+    - update 메소드는 detached 엔티티를 persistent상태로 변경한다. transient상태일경우는 에러 발생한다.
+    - saveOrUpdate 메소드는 transient일때도 동작한다.
