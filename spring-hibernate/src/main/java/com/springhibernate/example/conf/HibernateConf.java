@@ -1,16 +1,23 @@
 package com.springhibernate.example.conf;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import javax.sql.DataSource;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
+import org.hibernate.EmptyInterceptor;
+import org.hibernate.type.Type;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import com.jsjg73.hibernate.lifecycle.DirtyDataInspector;
 
 @Configuration
 @EnableTransactionManagement
@@ -30,10 +37,13 @@ public class HibernateConf {
 		sessionFactory.setDataSource(dataSource());
 		sessionFactory.setPackagesToScan(new String[] {"com.springhibernate.example.operations.model"});
 		sessionFactory.setHibernateProperties(hibernateProperties());
-		
+		sessionFactory.setEntityInterceptor(hibernateInterceptor());
 		return sessionFactory; 
 	}
-	
+	@Bean
+	public DirtyDataInspector hibernateInterceptor() {
+	    return new DirtyDataInspector();
+	}
 	@Bean
 	public Properties hibernateProperties() {
 		Properties hibernateProperties = new Properties();

@@ -31,3 +31,20 @@
     - merge 메소드는 detaced 상태를 인자로 받아서 같은 ID의 새 object를 반환한다. 인자로 받은 detached 엔티티의 상태값을 사용한다.
     - update 메소드는 detached 엔티티를 persistent상태로 변경한다. transient상태일경우는 에러 발생한다.
     - saveOrUpdate 메소드는 transient일때도 동작한다.
+
+---
+
+## [2. Hibernate Entity Lifecycle](https://www.baeldung.com/hibernate-entity-lifecycle)
+
+- 2.1 Persistence Context
+    - 저장소와 코드 사이에 있는 staging 영역.
+    - Unit of Work 패턴.(new, drity, clean, deleted, commit, rollback)
+    - Hibernate의 Session은 Persistence context 컨셉을 따른다.
+    - **Hibernate entity lifecycle 상태**는 엔티티가 persistence context와 어떤 관계를 맺는지 나타낸다.
+
+- 2.2 Managed Entity
+- 2.3 Detached Entity
+- 2.4 Transient Entity
+- 2.5 Deleted Entity
+
+- baeldung의 HibernateLifecycleUnitTest는 Spring을 사용하지 않기 때문에, Session을 사용하기 위한 환경설정을 직접 진행한다. 스프링 환경에서 동일한 테스트를 수행하도록 변경해본다.
