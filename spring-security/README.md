@@ -24,3 +24,21 @@ hasAuthority()
 **Adding Authorities To Users**
 
 **Permission based Authentication in Action**
+
+Form Based Authentication
+
+SESSIONID
+
+Login Page
+
+Remember me
+
+Remember me cookie and extra options
+
+Logout
+
+---
+
+### 참고 이미지
+
+- [Form Based Auth](https://lucid.app/lucidchart/2a7b15dc-0767-4668-b8ce-f8ccf0f1c81c/edit?invitationId=inv_2273b037-5eff-4d94-a87e-5cc20ea52f19) 
