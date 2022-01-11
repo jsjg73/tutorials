@@ -43,8 +43,20 @@
     - **Hibernate entity lifecycle 상태**는 엔티티가 persistence context와 어떤 관계를 맺는지 나타낸다.
 
 - 2.2 Managed Entity
+    - whenEntityLoaded_thenEntityManaged()
+    - 세션이 종료될때, 관리되는 엔티티 중에서 dirty 엔티티를 찾고 데이터베이스와 동기화한다.
 - 2.3 Detached Entity
 - 2.4 Transient Entity
 - 2.5 Deleted Entity
 
 - baeldung의 HibernateLifecycleUnitTest는 Spring을 사용하지 않기 때문에, Session을 사용하기 위한 환경설정을 직접 진행한다. 스프링 환경에서 동일한 테스트를 수행하도록 변경해본다.
+
+
+## 참고사항
+- createQuery()와 createSQLQuery()의 차이( 2022.01.11 )
+    - createQuery()는 HSQL을 사용한다. persistence context에 있는 엔티티와 동기화된 결과를 반환한다.
+    - 반면, createSQLQuery()는 데이터베이스에 있는 rows를 대상으로 조회한다.
+    - 주의할 점은 createQuery에 의해 동기화된 이후에는 native를 이용한 쿼리도 동기화된 결과를 반환한다.
+    - 예를 들면, 초기 데이터베이스에는 3개의 행이 있다. transient entity를 session.save(entity)한다. entity는 persistent 상태가 된다. 이때 바로 native 쿼리로 count하면 새 엔티티가 반영되지 않은 결과를 반환한다(3개 행). 그리고 HQL로 count쿼리를 실행하면 4를 반환한다. 이후에 다시 native를 실행하면 3이 아닌 4를 반환한다.
+    - 위 예시에서 두 번의 동일한 native 쿼리가 서로 다른 값을 반환한다. 중간에 실행되는 HQL쿼리가 영향을 끼친것으로 보인다. 이는 **unrepeatable read**문제와 유사하다.
+    - HB의 상태와 별개로 데이터베이스의 상태만 알고싶다면 jdbc를 직접 사용하는게 안전하다.

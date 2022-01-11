@@ -11,7 +11,7 @@ import org.hibernate.engine.spi.SessionImplementor;
 
 public class HibernateLifecycleUtil {
 	
-	public static List<Object> getManagedEntities(Session session) {
+	public static List<EntityEntry> getManagedEntities(Session session) {
 		Map.Entry<Object, EntityEntry>[] entries = ((SessionImplementor) session).getPersistenceContext().reentrantSafeEntityEntries();
 		return Arrays.stream(entries).map(a-> a.getValue()).collect(Collectors.toList());
 	}
