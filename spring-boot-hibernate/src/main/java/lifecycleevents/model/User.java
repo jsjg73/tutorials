@@ -1,6 +1,7 @@
 package lifecycleevents.model;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.PostLoad;
@@ -15,6 +16,7 @@ import javax.persistence.Transient;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+@EntityListeners(AuditTrailListener.class)
 @Entity
 public class User {
 	private static Log log = LogFactory.getLog(User.class);
