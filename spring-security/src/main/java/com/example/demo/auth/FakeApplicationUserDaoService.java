@@ -2,12 +2,13 @@ package com.example.demo.auth;
 
 import com.example.demo.student.Student;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static com.example.demo.security.ApplicationUserRole.*;
 
@@ -30,6 +31,7 @@ public class FakeApplicationUserDaoService implements ApplicationUserDao{
     }
 
     private List<ApplicationUser> getApplicationUsers(){
+
         List<ApplicationUser> applicationUsers = Lists.newArrayList(
                 new ApplicationUser(
                         "annasmith",
@@ -53,6 +55,16 @@ public class FakeApplicationUserDaoService implements ApplicationUserDao{
                         "tom",
                         passwordEncoder.encode("password"),
                         ADMINTRAINEE.getGrantedAuthorities(),
+                        true,
+                        true,
+                        true,
+                        true
+                ),
+
+                new ApplicationUser(
+                        "jsjg73",
+                        passwordEncoder.encode("password"),
+                        MEETING.getGrantedAuthorities(),
                         true,
                         true,
                         true,

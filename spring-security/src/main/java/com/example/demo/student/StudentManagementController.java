@@ -44,4 +44,10 @@ public class StudentManagementController {
         System.out.println("updateStudent");
         System.out.println(String.format("%s %s", studentId , student));
     }
+
+    @GetMapping(path = "{meeting}")
+    @PreAuthorize("hasAuthority(#meeting)")
+    public void authorityTest(@PathVariable("meeting") String meeting){
+        System.out.println("success to enter "+ meeting);
+    }
 }
