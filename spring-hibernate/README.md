@@ -51,7 +51,15 @@
 
 - baeldung의 HibernateLifecycleUnitTest는 Spring을 사용하지 않기 때문에, Session을 사용하기 위한 환경설정을 직접 진행한다. 스프링 환경에서 동일한 테스트를 수행하도록 변경해본다.
 
+---
 
+## [3. One-to-One Relationship](https://www.baeldung.com/jpa-one-to-one)
+- 3.1 Using a Foreign Key
+  - user 테이블과 address 테이블이 있다. user 테이블에 외부키로 address_id 컬럼이 있다.
+- 3.2 Using a Shared Primary Key
+- 3.3 Using a Join Table
+
+---
 ## 참고사항
 - createQuery()와 createSQLQuery()의 차이( 2022.01.11 )
     - createQuery()는 HSQL을 사용한다. persistence context에 있는 엔티티와 동기화된 결과를 반환한다.
