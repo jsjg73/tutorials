@@ -1,4 +1,4 @@
-package com.jsjg73.hibernate.onetoone.sharedkeybased;
+package com.jsjg73.hibernate.multiplicity.onetoone.sharedkeybased;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

@@ -1,4 +1,4 @@
-package com.jsjg73.hibernate.onetoone.foreignkeybased;
+package com.jsjg73.hibernate.multiplicity.onetoone.foreignkeybased;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

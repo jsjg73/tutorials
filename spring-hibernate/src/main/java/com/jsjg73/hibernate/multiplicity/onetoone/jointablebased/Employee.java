@@ -1,4 +1,4 @@
-package com.jsjg73.hibernate.onetoone.jointablebased;
+package com.jsjg73.hibernate.multiplicity.onetoone.jointablebased;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

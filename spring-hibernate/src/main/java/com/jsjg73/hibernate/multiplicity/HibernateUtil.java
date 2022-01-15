@@ -1,4 +1,4 @@
-package com.jsjg73.hibernate.onetoone;
+package com.jsjg73.hibernate.multiplicity;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -43,7 +43,7 @@ public class HibernateUtil {
 		Properties properties = new Properties();
 		URL propertiesURL = Thread.currentThread()
 				.getContextClassLoader()
-				.getResource("onetoone/hibernate.properties");
+				.getResource("mutiplicity/hibernate.properties");
 		try(FileInputStream inputStream = new FileInputStream(propertiesURL.getFile())){
 			properties.load(inputStream);
 		}

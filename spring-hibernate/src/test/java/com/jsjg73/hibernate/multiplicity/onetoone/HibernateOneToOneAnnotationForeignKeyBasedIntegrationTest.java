@@ -1,4 +1,4 @@
-package com.jsjg73.hibernate.onetoone;
+package com.jsjg73.hibernate.multiplicity.onetoone;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -8,21 +8,25 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.jsjg73.hibernate.onetoone.sharedkeybased.Address;
-import com.jsjg73.hibernate.onetoone.sharedkeybased.User;
+import com.jsjg73.hibernate.multiplicity.HibernateUtil;
+import com.jsjg73.hibernate.multiplicity.Strategy;
+import com.jsjg73.hibernate.multiplicity.onetoone.foreignkeybased.Address;
+import com.jsjg73.hibernate.multiplicity.onetoone.foreignkeybased.User;
 
-public class HibernateOneToOneAnnotationSharedPrimaryKeyBasedIntegrationTest {
-private static SessionFactory sessionFactory;
+public class HibernateOneToOneAnnotationForeignKeyBasedIntegrationTest {
+	
+	private static SessionFactory sessionFactory;
 	
 	private Session session;
 	
 	@BeforeClass
 	public static void beforeTests() {
-		sessionFactory = HibernateUtil.getSessionFactory(Strategy.SHARED_PRIMARY_KEY);
+		sessionFactory = HibernateUtil.getSessionFactory(Strategy.FOREIGN_KEY);
 	}
 	@Before
 	public void setup() {
@@ -33,10 +37,15 @@ private static SessionFactory sessionFactory;
     public void tearDown() {
         session.close();
     }
-		
-	@Test
-	public void givenData_whenInsert_thenCreates1to1relationship() {
-		User user = new User();
+
+    @AfterClass
+    public static void afterTests() {
+        sessionFactory.close();
+    }
+    
+    @Test
+    public void giventData_whenInsert_thenCreates1to1relationship() {
+    	User user = new User();
     	user.setUserName("alice@gmail.com");
     	
     	Address address = new Address();
@@ -51,8 +60,9 @@ private static SessionFactory sessionFactory;
     	session.getTransaction().commit();
     	
     	assert1to1InsertedData();
-	}
-	private void assert1to1InsertedData() {
+    }
+	
+    private void assert1to1InsertedData() {
 		List<User> userList = session.createQuery("FROM User").list();
 		
 		assertNotNull(userList);

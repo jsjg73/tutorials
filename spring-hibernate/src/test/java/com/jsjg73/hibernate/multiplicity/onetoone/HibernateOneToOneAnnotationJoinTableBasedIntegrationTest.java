@@ -1,4 +1,4 @@
-package com.jsjg73.hibernate.onetoone;
+package com.jsjg73.hibernate.multiplicity.onetoone;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -13,8 +13,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.jsjg73.hibernate.onetoone.jointablebased.Employee;
-import com.jsjg73.hibernate.onetoone.jointablebased.WorkStation;
+import com.jsjg73.hibernate.multiplicity.HibernateUtil;
+import com.jsjg73.hibernate.multiplicity.Strategy;
+import com.jsjg73.hibernate.multiplicity.onetoone.jointablebased.Employee;
+import com.jsjg73.hibernate.multiplicity.onetoone.jointablebased.WorkStation;
 
 public class HibernateOneToOneAnnotationJoinTableBasedIntegrationTest {
 private static SessionFactory sessionFactory;
