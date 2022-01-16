@@ -18,6 +18,16 @@ public enum Strategy {
 	ONE_TO_MANY(Arrays.asList(
 			com.jsjg73.hibernate.multiplicity.onetomany.Cart.class,
 			com.jsjg73.hibernate.multiplicity.onetomany.Items.class
+			)),
+	MANY_TO_MANY(Arrays.asList(
+			com.jsjg73.hibernate.multiplicity.manytomany.Student.class,
+			com.jsjg73.hibernate.multiplicity.manytomany.Course.class
+			)), 
+	MANY_TO_MANY_COMPOSITEKEY(Arrays.asList(
+			com.jsjg73.hibernate.multiplicity.manytomany.compositekey.Student.class,
+			com.jsjg73.hibernate.multiplicity.manytomany.compositekey.Course.class,
+			com.jsjg73.hibernate.multiplicity.manytomany.compositekey.CourseRating.class,
+			com.jsjg73.hibernate.multiplicity.manytomany.compositekey.CourseRatingKey.class
 			));
 	
 	private List<Class<?>> entityClasses;
