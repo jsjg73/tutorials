@@ -57,7 +57,6 @@ public class HibernateManyToManyAnnotationIntegration {
 		
 		kim.like(math, eng);
 		
-//		math.addStudents(kim, lee);
 		lee.like(eng, cs);
 		choi.like(cs,math);
 		session.persist(kim);
@@ -65,19 +64,16 @@ public class HibernateManyToManyAnnotationIntegration {
 		session.persist(choi);
 		session.persist(math);
 		tx.commit();
-		session.close();
+		session.clear();
 		assertThat(kim.getId()).isEqualTo(1L);
 		
-		session = sessionFactory.openSession();
-
-		Student _kim = session.get(Student.class, kim.getId());
-		assertThat(_kim).isNotNull();
-		assertThat(_kim.getLikedCourse().size()).isEqualTo(2);
+		kim = session.get(Student.class, kim.getId());
+		assertThat(kim).isNotNull();
+		assertThat(kim.getLikedCourse().size()).isEqualTo(2);
 		
-		
-		Course _math = session.get(Course.class, math.getId());
-		assertThat(_math).isNotNull();
-		assertThat(_math.getLikes()).size().isEqualTo(2);
+		math = session.get(Course.class, math.getId());
+		assertThat(math).isNotNull();
+		assertThat(math.getLikes()).size().isEqualTo(2);
 		
 		
 	}

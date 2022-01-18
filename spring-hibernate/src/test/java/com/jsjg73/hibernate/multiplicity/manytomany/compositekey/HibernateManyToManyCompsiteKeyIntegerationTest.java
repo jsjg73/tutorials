@@ -58,15 +58,14 @@ public class HibernateManyToManyCompsiteKeyIntegerationTest {
 		assertThat(kim_math_rating.getStudent().getId()).isEqualTo(kim.getId());
 		assertThat(kim_math_rating.getCourse().getId()).isEqualTo(math.getId());
 		tx.commit();
-		session.close();
+		session.clear();
 
-		session=sessionFactory.openSession();
-		Student _kim = session.get(Student.class, kim.getId());
-		assertThat(_kim.getRatings()).isNotNull();
-		assertThat(_kim.getRatings()).size().isEqualTo(1);
+		kim = session.get(Student.class, kim.getId());
+		assertThat(kim.getRatings()).isNotNull();
+		assertThat(kim.getRatings()).size().isEqualTo(1);
 		
-		Course _math = session.get(Course.class, math.getId());
-		assertThat(_math).isNotNull();
-		assertThat(_math.getRatings()).size().isEqualTo(1);
+		math = session.get(Course.class, math.getId());
+		assertThat(math).isNotNull();
+		assertThat(math.getRatings()).size().isEqualTo(1);
 	}
 }

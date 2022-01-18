@@ -28,6 +28,13 @@ public enum Strategy {
 			com.jsjg73.hibernate.multiplicity.manytomany.compositekey.Course.class,
 			com.jsjg73.hibernate.multiplicity.manytomany.compositekey.CourseRating.class,
 			com.jsjg73.hibernate.multiplicity.manytomany.compositekey.CourseRatingKey.class
+			)), 
+	MANY_TO_MANY_NARY(Arrays.asList(
+			com.jsjg73.hibernate.multiplicity.manytomany.n_ary.Student.class,
+			com.jsjg73.hibernate.multiplicity.manytomany.n_ary.Course.class,
+			com.jsjg73.hibernate.multiplicity.manytomany.n_ary.CourseRating.class,
+			com.jsjg73.hibernate.multiplicity.manytomany.n_ary.CourseRatingKey.class,
+			com.jsjg73.hibernate.multiplicity.manytomany.n_ary.Teacher.class
 			));
 	
 	private List<Class<?>> entityClasses;
