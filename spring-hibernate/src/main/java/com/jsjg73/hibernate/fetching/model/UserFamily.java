@@ -9,13 +9,31 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class UserFamily {
+	public UserFamily() {
+	}
+	public UserFamily(String name, User user) {
+		super();
+		this.name = name;
+		this.user = user;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
+	private Long id;
+	
+	private String name;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public Long getId() {
 		return id;
@@ -47,10 +65,10 @@ private Long id;
 		if(this == obj)return true;
 		UserFamily other = (UserFamily) obj;
 		
-		if(this.id == null) {
-			if(other.id != null)
+		if(this.name == null) {
+			if(other.name != null)
 				return false;
-		}else if(!other.id.equals(this.id)){
+		}else if(!other.name.equals(this.name)){
 			return false;
 		}
 		return true;

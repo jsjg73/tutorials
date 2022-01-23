@@ -13,9 +13,19 @@ public class UserDetail {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	private String detail;
+
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
+	
+	
+	public UserDetail() {
+	}
+	public UserDetail(String detail, User user) {
+		this.detail=detail;
+		this.user = user;
+	}
 
 	public Long getId() {
 		return id;
@@ -50,10 +60,10 @@ public class UserDetail {
         if (getClass() != obj.getClass())
             return false;
         UserDetail other = (UserDetail) obj;
-        if (id == null) {
-            if (other.id != null)
+        if (detail == null) {
+            if (other.detail != null)
                 return false;
-        } else if (!id.equals(other.id))
+        } else if (!detail.equals(other.detail))
             return false;
 
         return true;
