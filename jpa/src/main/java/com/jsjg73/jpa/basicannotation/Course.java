@@ -1,6 +1,7 @@
 package com.jsjg73.jpa.basicannotation;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -12,7 +13,11 @@ public class Course {
 	private long id;
 	
 	@Basic(optional = false, fetch = FetchType.LAZY)
-	private String name;
+	private String notNullByBasic;
+
+	@Column(columnDefinition = "varchar(255) not null")
+	private String notNullByDB;
+	
 
 	public long getId() {
 		return id;
@@ -22,12 +27,20 @@ public class Course {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getNotNullByBasic() {
+		return notNullByBasic;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNotNullByBasic(String notNullByBasic) {
+		this.notNullByBasic = notNullByBasic;
 	}
-	
+
+	public String getNotNullByDB() {
+		return notNullByDB;
+	}
+
+	public void setNotNullByDB(String notNullByDB) {
+		this.notNullByDB = notNullByDB;
+	}
+
 }
