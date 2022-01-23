@@ -22,7 +22,6 @@ public class HibernateUtil {
 	private static SessionFactory buildSessionFactory(Strategy strategy){
 		try {
 		ServiceRegistry registry = confiureServiceRegistry();
-		
 		MetadataSources metadataSources = new MetadataSources(registry);
 		for(Class<?> entityClass : strategy.getEntityClasses()) {
 			metadataSources.addAnnotatedClass(entityClass);

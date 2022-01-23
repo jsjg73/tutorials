@@ -8,13 +8,13 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class CourseRatingKey implements Serializable {
 
-	@Column(name = "student_id")
+	@Column
 	private Long studentId;
 
-	@Column(name = "course_id")
+	@Column
 	private Long courseId;
 	
-	@Column(name ="teacher_id")
+	@Column
 	private Long teacherId;
 
 	public CourseRatingKey() {
