@@ -46,7 +46,7 @@ public class StudentManagementController {
     }
 
     @GetMapping(path = "{meeting}")
-    @PreAuthorize("hasAuthority(#meeting)")
+    @PreAuthorize("hasAuthority(#meeting+':HOST')")
     public void authorityTest(@PathVariable("meeting") String meeting){
         System.out.println("success to enter "+ meeting);
     }
